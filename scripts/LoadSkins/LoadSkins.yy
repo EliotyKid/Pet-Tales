@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"Script4",
+  "%Name":"LoadSkins",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Script4",
+  "name":"LoadSkins",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Pets",
+    "path":"folders/Scripts/PetSys/Pets.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

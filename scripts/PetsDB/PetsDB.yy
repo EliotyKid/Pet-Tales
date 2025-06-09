@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"CurveGetValue",
+  "%Name":"PetsDB",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"CurveGetValue",
+  "name":"PetsDB",
   "parent":{
-    "name":"General",
-    "path":"folders/Scripts/General.yy",
+    "name":"DB",
+    "path":"folders/Scripts/PetSys/DB.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

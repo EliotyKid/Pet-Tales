@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CreatePetDB",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CreatePetDB",
+  "parent":{
+    "name":"DB",
+    "path":"folders/Scripts/PetSys/DB.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

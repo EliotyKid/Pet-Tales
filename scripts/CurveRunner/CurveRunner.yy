@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CurveRunner",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CurveRunner",
+  "parent":{
+    "name":"General",
+    "path":"folders/Scripts/General.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

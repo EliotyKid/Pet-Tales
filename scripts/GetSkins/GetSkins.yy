@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GetSkins",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GetSkins",
+  "parent":{
+    "name":"Pets",
+    "path":"folders/Scripts/PetSys/Pets.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

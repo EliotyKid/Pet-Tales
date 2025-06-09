@@ -32,6 +32,7 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){}) constructor{
         	script_execute(_scr)
         }
       }
+      window_set_cursor(cr_handpoint)
     }
     
     x = lerp(x, isOpen ? dest.x : start.x ,.3-delay)

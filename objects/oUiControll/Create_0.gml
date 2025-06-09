@@ -9,7 +9,7 @@ menuLen = array_length(menuItems)
 
 menuPos = new Vector2(10,room_width*.4)
 
-scl = 4
+scl = UI_SCALE
 
 openBtnPos = new Vector2(menuPos.x+200,menuPos.y)
 openBtnSize = new Vector2(50,100)
@@ -20,11 +20,16 @@ isMenuOpen = false
 
 openBtn = new CreateButtom(menuPos.x+300,menuPos.y,50,100,,function(){
   isMenuOpen = !isMenuOpen  
+  
+  if !isMenuOpen{
+    if instance_exists(oUIMyPets) oUIMyPets.destroy = true
+    if instance_exists(oUIStore) oUIStore.destroy = true
+    if instance_exists(oUISettings) oUISettings.destroy = true
+    if instance_exists(oUIExit) oUIExit.destroy = true
+  }
 })
 openBtn.needDisappear = false
-invertIsOpen = function(){
-  isMenuOpen = !isMenuOpen
-}
+
 
 menuBtns = []
 for( var i=0; i<menuLen; i++){
@@ -35,4 +40,48 @@ for( var i=0; i<menuLen; i++){
   menuBtns[i] = new CreateButtom(_boxPos.x,_boxPos.y,_boxSize.x,_boxSize.y,menuItems[i])
   menuBtns[i].start.x = -_boxSize.x*2
   menuBtns[i].delay = (1+i)*(.2/menuLen)
+}
+
+menuBtns[0].scr = function(){
+  if !instance_exists(oUIMyPets) instance_create_layer(0,0,"UI",oUIMyPets)
+  else oUIMyPets.destroy = true
+    
+  if instance_exists(oUIStore) oUIStore.destroy = true
+  if instance_exists(oUISettings) oUISettings.destroy = true
+  if instance_exists(oUIExit) oUIExit.destroy = true
+    
+  //isMenuOpen = false
+}
+
+menuBtns[1].scr = function(){
+  if !instance_exists(oUIStore) instance_create_layer(0,0,"UI",oUIStore)
+  else oUIStore.destroy = true
+  
+  if instance_exists(oUIMyPets) oUIMyPets.destroy = true
+  if instance_exists(oUISettings) oUISettings.destroy = true
+  if instance_exists(oUIExit) oUIExit.destroy = true
+    
+  //isMenuOpen = false
+}
+
+menuBtns[2].scr = function(){
+  if !instance_exists(oUISettings) instance_create_layer(0,0,"UI",oUISettings)
+  else oUISettings.destroy = true
+    
+  if instance_exists(oUIMyPets) oUIMyPets.destroy = true
+  if instance_exists(oUIStore) oUIStore.destroy = true
+  if instance_exists(oUIExit) oUIExit.destroy = true
+    
+  //isMenuOpen = false
+}
+
+menuBtns[3].scr = function(){
+  if !instance_exists(oUIExit) instance_create_layer(0,0,"UI",oUIExit)
+  else oUIExit.destroy = true
+  
+  if instance_exists(oUIMyPets) oUIMyPets.destroy = true
+  if instance_exists(oUIStore) oUIStore.destroy = true
+  if instance_exists(oUISettings) oUISettings.destroy = true
+    
+  //isMenuOpen = false
 }

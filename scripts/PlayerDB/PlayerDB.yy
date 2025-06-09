@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"PlayerDB",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PlayerDB",
+  "parent":{
+    "name":"DB",
+    "path":"folders/Scripts/PetSys/DB.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
