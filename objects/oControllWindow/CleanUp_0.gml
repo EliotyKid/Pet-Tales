@@ -1,0 +1,1 @@
+if surface_exists(surfInterface) surface_free(surfInterface)
