@@ -4,9 +4,11 @@ enum PET_TYPE {
   COW,
   DUCK,
   CHICKEN,
+  BIRD,
   DRAGON
 }
 
 #macro SKINS_FILE "skins.dat"
 
 global.skins={ };
+global.cardSelected = noone

@@ -1,4 +1,4 @@
-function CreateCard(_pet) constructor {
+function CreateCard(_pet,_delay = 0) constructor {
   var _screen = GetScreenSize()
   x = _screen.w*.5
   y = _screen.h*1.5
@@ -17,6 +17,9 @@ function CreateCard(_pet) constructor {
   
   hover = false
   
+  delay = _delay
+  timerDelay = 0
+  
   if surface_exists(surf){
     surface_set_target(surf)
     draw_clear_alpha(c_black,0)
@@ -31,6 +34,11 @@ function CreateCard(_pet) constructor {
   }
   
   Update = function(){
+    if timerDelay < delay{
+      timerDelay ++
+      exit
+    }
+    
     x = lerp(x, dest.x,.1)
     y = lerp(y, dest.y,.1)
     
@@ -40,9 +48,20 @@ function CreateCard(_pet) constructor {
     if _hover{
       if !hover{
         angle = 20
+        audio_play_sound(sndHoverBtn,1,false,6)
+        scale.x = 1.4
       }
-      scale.x = lerp(scale.x,1.2,.05)
-      scale.y = lerp(scale.y,1.2,.05)
+      scale.x = lerp(scale.x,1.2,.1)
+      scale.y = lerp(scale.y,1.2,.1)
+      
+      if mouse_check_button_pressed(mb_left){
+        //TODO logica de armazenar os pet atual pra pegar ae modificar as infos
+        scale.x += .2
+        scale.y -= .1
+        //show_debug_message(pet.desc)
+        global.cardSelected = pet.id
+        audio_play_sound(sndClickBtn,1,false)
+      }
     }else{
       scale.x = lerp(scale.x,1,.05)
       scale.y = lerp(scale.y,1,.05)

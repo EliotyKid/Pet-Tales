@@ -22,7 +22,7 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){}) constructor{
     var _hover = point_in_rectangle(ms.x,ms.y,x-w*.5,y-h*.5,x+w*.5,y+h*.5)
     if _hover{
       if !hover{
-        audio_play_sound(sndHoverBtn,1,false,8)
+        audio_play_sound(sndHoverBtn,1,false,6)
       }
       
       if mouse_check_button_pressed(mb_left){

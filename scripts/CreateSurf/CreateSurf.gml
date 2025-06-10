@@ -16,12 +16,18 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0) constructor{
   delay = _delay
   timerDelay = 0
   
-  if surface_exists(surf){
-    surface_set_target(surf)
-    draw_clear_alpha(c_black,0)
-    script_execute(_setDraw)
-    surface_reset_target()
+  setDraw = _setDraw
+  
+  Redraw = function(){
+    if surface_exists(surf){
+      surface_set_target(surf)
+      draw_clear_alpha(c_black,0)
+      script_execute(setDraw)
+      surface_reset_target()
+    }
   }
+  
+  Redraw()
   
   Update = function(){
     if timerDelay < delay {
