@@ -16,6 +16,7 @@ if global.cardSelected != noone{
     petSelected = _pet.pet
     name.Redraw()
     desc.Redraw()
+    
   }
   else petSelected = noone
 }

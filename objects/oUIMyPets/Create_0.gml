@@ -55,3 +55,7 @@ for( var i=0; i<PLAYER_PETS_DATABASE.Length(); i++){
 offsetInd = 0
 
 UpdateCardsPos(cards)
+
+AtualizaCardPos = function(){
+  UpdateCardsPos(cards)
+}

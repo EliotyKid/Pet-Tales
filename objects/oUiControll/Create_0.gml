@@ -26,6 +26,8 @@ openBtn = new CreateButtom(menuPos.x+300,menuPos.y,50,100,,function(){
     if instance_exists(oUIStore) oUIStore.destroy = true
     if instance_exists(oUISettings) oUISettings.destroy = true
     if instance_exists(oUIExit) oUIExit.destroy = true
+      
+    global.cardSelected = noone
   }
 })
 openBtn.needDisappear = false
@@ -51,6 +53,7 @@ menuBtns[0].scr = function(){
   if instance_exists(oUIExit) oUIExit.destroy = true
     
   //isMenuOpen = false
+  global.cardSelected = noone
 }
 
 menuBtns[1].scr = function(){
@@ -62,6 +65,7 @@ menuBtns[1].scr = function(){
   if instance_exists(oUIExit) oUIExit.destroy = true
     
   //isMenuOpen = false
+  global.cardSelected = noone
 }
 
 menuBtns[2].scr = function(){
@@ -73,6 +77,7 @@ menuBtns[2].scr = function(){
   if instance_exists(oUIExit) oUIExit.destroy = true
     
   //isMenuOpen = false
+  global.cardSelected = noone
 }
 
 menuBtns[3].scr = function(){
@@ -84,4 +89,5 @@ menuBtns[3].scr = function(){
   if instance_exists(oUISettings) oUISettings.destroy = true
     
   //isMenuOpen = false
+  global.cardSelected = noone
 }
