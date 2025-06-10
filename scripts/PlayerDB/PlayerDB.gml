@@ -49,7 +49,7 @@ with (global.PlayerPetsData) {
 #endregion
 
 PLAYER_PETS_DATABASE.Add(PETS_DATABASE.FindById(0).pet)
-//PLAYER_PETS_DATABASE.Add(PETS_DATABASE.FindById(1).pet)
+PLAYER_PETS_DATABASE.Add(PETS_DATABASE.FindById(1).pet)
 //
 //PLAYER_PETS_DATABASE.Add(PETS_DATABASE.FindById(2).pet)
 //
