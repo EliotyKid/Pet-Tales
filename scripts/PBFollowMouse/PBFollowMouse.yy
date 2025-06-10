@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"PBFollowMouse",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"PBFollowMouse",
+  "parent":{
+    "name":"Behaviors",
+    "path":"folders/Scripts/PetSys/Behaviors.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

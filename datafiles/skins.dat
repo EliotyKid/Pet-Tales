@@ -2,7 +2,7 @@
   "Cow": [
     
   ],
-  "Calf": [
+  "Fox": [
     
   ],
   "Chick": [
@@ -14,7 +14,19 @@
   "Cat": [
 
   ],
-  "SnowFox": [
+  "Wolf": [
+
+  ],
+  "Eagle": [
+
+  ],
+  "Dog": [
+
+  ],
+  "Pig": [
+
+  ],
+  "Pigeon": [
 
   ],
 }
