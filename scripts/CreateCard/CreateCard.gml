@@ -2,7 +2,12 @@ function CreateCard(_pet,_delay = 0) constructor {
   var _screen = GetScreenSize()
   x = _screen.w*.5
   y = _screen.h*1.5
+  
+  start = new Vector2(x,y)
+  
   dest = new Vector2(300,300)
+  
+  generalPos = new Vector2(300,300)
   
   pet = _pet
   
@@ -22,6 +27,9 @@ function CreateCard(_pet,_delay = 0) constructor {
   
   selectedPos = new Vector2(_screen.w*.5,_screen.h*.5-200)
   
+  posCurve = new CurveRunner(acCard,"pos",2)
+  angleCurve = new CurveRunner(acCard,"angle",.5)
+  
   if surface_exists(surf){
     surface_set_target(surf)
     draw_clear_alpha(c_black,0)
@@ -40,16 +48,13 @@ function CreateCard(_pet,_delay = 0) constructor {
       timerDelay ++
       exit
     }
-    
-    x = lerp(x, dest.x,.1)
-    y = lerp(y, dest.y,.1)
-    
+
     var ms = GetMousePos()
     
     var _hover = point_in_rectangle(ms.x,ms.y,x-w*.5+marg,y-h*.5+marg,x+w*.5-marg,y+h*.5-marg)
     if _hover && global.cardSelected != pet.id{
       if !hover{
-        angle = 20
+        angleCurve.reset()
         audio_play_sound(sndHoverBtn,1,false,6)
         scale.x = 1.4
       }
@@ -61,10 +66,16 @@ function CreateCard(_pet,_delay = 0) constructor {
         scale.x += .2
         scale.y -= .1
         //show_debug_message(pet.desc)
-        global.cardSelected = pet.id
+        
         if instance_exists(oUIMyPets){
           oUIMyPets.AtualizaCardPos()
+          oUIMyPets.ResetCurvePosCardSelected()
         }
+        global.cardSelected = pet.id
+        
+        start = new Vector2(x,y)
+        
+        posCurve.reset()
         audio_play_sound(sndClickBtn,1,false)
       }
     }else{
@@ -75,9 +86,23 @@ function CreateCard(_pet,_delay = 0) constructor {
     if global.cardSelected == pet.id{
       scale.x = lerp(scale.x,UI_SCALE*.5,.2)
       scale.y = lerp(scale.y,UI_SCALE*.5,.2)
+      start = generalPos
+      dest = selectedPos
+    }else{
+      start = selectedPos
+      dest = generalPos
     }
     
-    angle = lerp(angle,0,.2)
+    var _pos = posCurve.getPos()
+    if _pos < 1{
+      var _val = posCurve.getValue()
+      x = start.x + (_val * (dest.x - start.x))
+      y = start.y + (_val * (dest.y - start.y))
+    }
+    
+    
+    var _val = angleCurve.getValue()
+    angle = 20*_val
     
     hover = _hover
   }

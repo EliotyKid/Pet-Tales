@@ -59,3 +59,12 @@ UpdateCardsPos(cards)
 AtualizaCardPos = function(){
   UpdateCardsPos(cards)
 }
+
+ResetCurvePosCardSelected = function(){
+  var _len = array_length(cards)
+  for( var i=0; i<_len; i++){
+    if cards[i].pet.id == global.cardSelected{
+      cards[i].posCurve.reset()
+    }
+  }
+}

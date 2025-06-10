@@ -59,6 +59,7 @@
   },
   "name":"pet_tales",
   "resources":[
+    {"id":{"name":"acCard","path":"animcurves/acCard/acCard.yy",},},
     {"id":{"name":"acUi","path":"animcurves/acUi/acUi.yy",},},
     {"id":{"name":"oControllWindow","path":"objects/oControllWindow/oControllWindow.yy",},},
     {"id":{"name":"oGameControll","path":"objects/oGameControll/oGameControll.yy",},},

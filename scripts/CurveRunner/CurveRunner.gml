@@ -16,9 +16,17 @@ function CurveRunner(_curve, _chanel, _duration) constructor  {
 
     return animcurve_channel_evaluate(curve, pos)
   }
+  
+  getPos = function(){
+    return pos
+  }
 
   // Reinicia a curva se quiser reutilizar
   reset = function()  {
     pos = 0
+  }
+  
+  destroy = function(){
+    animcurve_destroy(curve)
   }
 }
