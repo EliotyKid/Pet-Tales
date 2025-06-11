@@ -17,4 +17,5 @@ for( var i=0; i<PLAYER_PETS_DATABASE.Length(); i++){
 
 for(var i=0; i<navLen; i++){
   nav[i].Draw()
+  nav[i].selected = i == navPage
 }

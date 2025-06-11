@@ -16,6 +16,8 @@ openBtnSize = new Vector2(50,100)
 
 isMenuOpen = false
 
+menuPage = noone
+
 
 
 openBtn = new CreateButtom(menuPos.x+300,menuPos.y,50,100,,function(){
@@ -28,6 +30,7 @@ openBtn = new CreateButtom(menuPos.x+300,menuPos.y,50,100,,function(){
     if instance_exists(oUIExit) oUIExit.destroy = true
       
     global.cardSelected = noone
+    menuPage = noone
   }
 })
 openBtn.needDisappear = false
@@ -45,8 +48,14 @@ for( var i=0; i<menuLen; i++){
 }
 
 menuBtns[0].scr = function(){
-  if !instance_exists(oUIMyPets) instance_create_layer(0,0,"UI",oUIMyPets)
-  else oUIMyPets.destroy = true
+  if !instance_exists(oUIMyPets) {
+    instance_create_layer(0,0,"UI",oUIMyPets)
+    menuPage = 0
+  }
+  else {
+    oUIMyPets.destroy = true
+    menuPage = noone
+  }
     
   if instance_exists(oUIStore) oUIStore.destroy = true
   if instance_exists(oUISettings) oUISettings.destroy = true
@@ -57,8 +66,14 @@ menuBtns[0].scr = function(){
 }
 
 menuBtns[1].scr = function(){
-  if !instance_exists(oUIStore) instance_create_layer(0,0,"UI",oUIStore)
-  else oUIStore.destroy = true
+  if !instance_exists(oUIStore) {
+    instance_create_layer(0,0,"UI",oUIStore)
+    menuPage = 1
+  }
+  else {
+    oUIStore.destroy = true
+    menuPage = noone
+  }
   
   if instance_exists(oUIMyPets) oUIMyPets.destroy = true
   if instance_exists(oUISettings) oUISettings.destroy = true
@@ -69,8 +84,14 @@ menuBtns[1].scr = function(){
 }
 
 menuBtns[2].scr = function(){
-  if !instance_exists(oUISettings) instance_create_layer(0,0,"UI",oUISettings)
-  else oUISettings.destroy = true
+  if !instance_exists(oUISettings) {
+    instance_create_layer(0,0,"UI",oUISettings)
+    menuPage = 2
+  }
+  else {
+    oUISettings.destroy = true
+    menuPage = noone
+  }
     
   if instance_exists(oUIMyPets) oUIMyPets.destroy = true
   if instance_exists(oUIStore) oUIStore.destroy = true
@@ -81,8 +102,14 @@ menuBtns[2].scr = function(){
 }
 
 menuBtns[3].scr = function(){
-  if !instance_exists(oUIExit) instance_create_layer(0,0,"UI",oUIExit)
-  else oUIExit.destroy = true
+  if !instance_exists(oUIExit) {
+    instance_create_layer(0,0,"UI",oUIExit)
+    menuPage = 3
+  }
+  else {
+    oUIExit.destroy = true
+    menuPage = noone
+  }
   
   if instance_exists(oUIMyPets) oUIMyPets.destroy = true
   if instance_exists(oUIStore) oUIStore.destroy = true

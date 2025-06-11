@@ -45,6 +45,15 @@ function CreateCard(_pet,_delay = 0) constructor {
       draw_sprite_ext(pet.sprite.idle,0,_centerPos.x,_centerPos.y,_s,_s,0,c_white,1)
       shader_reset()
       
+      if pet.skinsLen > 0 && pet.skinSel != noone{
+        var _skin = array_filter(pet.skins,function(element){
+          return element.id == pet.skinSel  
+        })
+        
+        draw_sprite_ext(asset_get_index(_skin[0].sprite),0,_centerPos.x,_centerPos.y,_s,_s,0,c_white,1)
+      }
+      
+      
       surface_reset_target()
     }
   }

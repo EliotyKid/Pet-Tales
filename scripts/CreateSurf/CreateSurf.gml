@@ -1,4 +1,4 @@
-function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0,_dynamic = false) constructor{
+function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0,_speed=1,_dynamic = false,_cretion = function(){ }) constructor{
   x = _pos.x
   y = _pos.y
   w = _size.x
@@ -6,8 +6,9 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0,_dynamic = fa
   surf = surface_create(w,h)
   
   
-  scaleCurve = new CurveRunner(acUi,"UIScale",1)
-  angleCurve = new CurveRunner(acUi,"angle",1)
+  
+  scaleCurve = new CurveRunner(acUi,"UIScale",_speed)
+  angleCurve = new CurveRunner(acUi,"angle",  _speed)
   
   scale = new Vector2(0,0)
   
@@ -19,6 +20,8 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0,_dynamic = fa
   isDynamic = _dynamic
   
   mousePos = new Vector2(0,0)
+  
+  script_execute(_cretion)
   
   setDraw = _setDraw
   

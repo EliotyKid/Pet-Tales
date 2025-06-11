@@ -9,9 +9,10 @@ function DrawTogle(_text,_size,_pos,_variable,_func = function(){}){
   var _hover = point_in_rectangle(mousePos.x,mousePos.y,_squadPos.x,_squadPos.y,_squadPos.x+_squadSize.x,_squadPos.y+_squadSize.y)
   if _hover{
     if mouse_check_button_pressed(mb_left){
+      audio_play_sound(sndClickBtn,1,false)
       script_execute(_func)
     }
   }
   
-  draw_rectangle(_pos.x,_pos.y,_pos.x+_size.x,_pos.y+_size.y,true)
+  //draw_rectangle(_pos.x,_pos.y,_pos.x+_size.x,_pos.y+_size.y,true)
 }

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"IndiceToVetor",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"IndiceToVetor",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

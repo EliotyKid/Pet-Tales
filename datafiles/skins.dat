@@ -1,6 +1,14 @@
 {
   "Cow": [
-    
+    {
+      "name": "Cape",
+      "id": 0,
+      "sprite": "sCowCape",
+      "icon": "sCowCapeIcon",
+      "unlocked": true,
+      "type": "body",
+      "cost": 20
+    },
   ],
   "Fox": [
     

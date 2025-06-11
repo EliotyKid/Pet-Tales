@@ -17,6 +17,8 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){},_args = []) con
   scr = _scr
   args = _args
   
+  selected = false
+  
   Step = function(){
     var isOpen = other.isMenuOpen
     var ms = GetMousePos()
@@ -47,7 +49,7 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){},_args = []) con
     var isOpen = other.isMenuOpen
     if point_distance(x,y,start.x,start.y)<2 && !isOpen && needDisappear exit
     
-    DrawBox(hover ? "lt" : "dt", x-w*.5,y-h*.5,w,h,UI_SCALE)
+    DrawBox(hover || selected ? "lt" : "dt", x-w*.5,y-h*.5,w,h,UI_SCALE)
     DrawSetAling(1,1)
     draw_text(x,y,text)
     DrawReset()

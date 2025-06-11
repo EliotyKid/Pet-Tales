@@ -2,7 +2,7 @@
   "$GMSprite":"",
   "%Name":"sCowPalette",
   "bboxMode":0,
-  "bbox_bottom":0,
+  "bbox_bottom":1,
   "bbox_left":0,
   "bbox_right":6,
   "bbox_top":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":1,
+  "height":2,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"10775c7c-8c34-45af-bbbc-90593f54cbe8","blendMode":0,"displayName":"default","isLocked":false,"name":"10775c7c-8c34-45af-bbbc-90593f54cbe8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
