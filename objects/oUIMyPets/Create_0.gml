@@ -7,6 +7,7 @@ petSelected = noone
 var _card = 200 * UI_SCALE
 var _marg = 4*UI_SCALE
 
+#region nav bar
 navPage = 0
 navItems = [
   "About",
@@ -25,20 +26,22 @@ for(var i=0; i<navLen; i++){
         name.ResetAnimations()
         status.ResetAnimations()
         desc.ResetAnimations()
-        
+        break;
+      case 1:
+        custom.ResetAnimations()
+        skins.ResetAnimations()
         break;
     }
   }
   nav[i] = new CreateButtom( _boxPos.x,_boxPos.y,_boxSize.x,_boxSize.y,navItems[i],_func,[i])
 }
 
+#endregion
 
-
+#region About
 name = new CreateSurf(new Vector2(screen.w*.5 - _card*.5-_marg,screen.h*.5-_card*.5+40),new Vector2(300,80),function(){
   DrawBox("dt",0,0,w,h,UI_SCALE)
-  var _titlePos = new Vector2(w*.5,15)
-  DrawSetAling(1,1)
-  draw_text(_titlePos.x,_titlePos.y,"Name")
+  DrawTitleInSurf("Name")
   
   if other.petSelected != noone{
     var _namePos = new Vector2(w*.5,h*.5)
@@ -49,17 +52,12 @@ name = new CreateSurf(new Vector2(screen.w*.5 - _card*.5-_marg,screen.h*.5-_card
 
 status = new CreateSurf(new Vector2(screen.w*.5-_card*.5-_marg,screen.h*.5-_card*.5+name.h+_marg+150), new Vector2(300,300),function(){
   DrawBox("dt",0,0,w,h,UI_SCALE)
-  var _titlePos = new Vector2(w*.5,15)
-  DrawSetAling(1,1)
-  draw_text(_titlePos.x,_titlePos.y,"Status")
-  DrawReset()
+  DrawTitleInSurf("Status")
 },15)
 
 desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card*.25),new Vector2(300,_card*.5), function(){
   DrawBox("dt",0,0,w,h,UI_SCALE)
-  var _titlePos = new Vector2(w*.5,15)
-  DrawSetAling(1,1)
-  draw_text(_titlePos.x,_titlePos.y,"Description")
+  DrawTitleInSurf("Description")
   
    if other.petSelected != noone{
     var _marg = 3*UI_SCALE
@@ -69,8 +67,38 @@ desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card
   }
   DrawReset()
 },30)
+#endregion
 
-#region Crds
+#region Custom
+
+custom = new CreateSurf(new Vector2(screen.w*.5-_card*.5-_marg,screen.h*.5-_card*.25),new Vector2(300,_card*.5),function(){
+  var _pet = noone
+  if global.cardSelected != noone{
+    _pet = PLAYER_PETS_DATABASE.FindById(global.cardSelected).pet
+  }
+  DrawBox("dt",0,0,w,h,UI_SCALE) 
+  DrawTitleInSurf("Customize")
+  
+  var _marg = 4*UI_SCALE
+  DrawTogle("Follow",new Vector2(w-_marg*2,30),new Vector2(_marg,30),_pet != noone ? _pet.isActive : false,function(){
+    if global.cardSelected != noone{
+      var _pet = PLAYER_PETS_DATABASE.FindById(global.cardSelected).pet
+      _pet.isActive = !_pet.isActive
+    } 
+  })
+  
+  DrawReset()
+},,true)
+
+skins = new CreateSurf(new Vector2(screen.w*.5+_card*.5+_marg,screen.h*.5-_card*.25),new Vector2(300,_card*.5),function(){
+  DrawBox("dt",0,0,w,h,UI_SCALE)  
+  var _marg = 4*UI_SCALE
+  DrawTitleInSurf("Skins")
+},15)
+
+#endregion
+
+#region Cards
 cards = []
 for( var i=0; i<PLAYER_PETS_DATABASE.Length(); i++){
   var _timeDelay = i*10

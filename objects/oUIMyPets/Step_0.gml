@@ -6,6 +6,10 @@ switch (navPage) {
     status.Update()
     desc.Update()
     break;
+  case 1:
+    custom.Update()
+    skins.Update()
+    break;
 }
 name.Update()
 status.Update()

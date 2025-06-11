@@ -1,4 +1,4 @@
-function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0) constructor{
+function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0,_dynamic = false) constructor{
   x = _pos.x
   y = _pos.y
   w = _size.x
@@ -15,6 +15,10 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0) constructor{
   
   delay = _delay
   timerDelay = 0
+  
+  isDynamic = _dynamic
+  
+  mousePos = new Vector2(0,0)
   
   setDraw = _setDraw
   
@@ -40,6 +44,13 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0) constructor{
     
     var _ang = angleCurve.getValue()
     angle = 20*_ang
+    
+    if isDynamic {
+      var _ms = GetMousePos()
+      mousePos = new Vector2(_ms.x-x+w*.5,_ms.y-y+h*.5)
+      //var _hover = point_in_rectangle(mousePos.x,mousePos.y,0,0,w,h)
+      Redraw()
+    }
   }
   
   Draw = function(){

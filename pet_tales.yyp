@@ -86,6 +86,8 @@
     {"id":{"name":"DrawBox","path":"scripts/DrawBox/DrawBox.yy",},},
     {"id":{"name":"DrawSelectBox","path":"scripts/DrawSelectBox/DrawSelectBox.yy",},},
     {"id":{"name":"DrawSetAlign","path":"scripts/DrawSetAlign/DrawSetAlign.yy",},},
+    {"id":{"name":"DrawTitleInSurf","path":"scripts/DrawTitleInSurf/DrawTitleInSurf.yy",},},
+    {"id":{"name":"DrawTogle","path":"scripts/DrawTogle/DrawTogle.yy",},},
     {"id":{"name":"GetMousePos","path":"scripts/GetMousePos/GetMousePos.yy",},},
     {"id":{"name":"GetNextId","path":"scripts/GetNextId/GetNextId.yy",},},
     {"id":{"name":"GetScreenSize","path":"scripts/GetScreenSize/GetScreenSize.yy",},},

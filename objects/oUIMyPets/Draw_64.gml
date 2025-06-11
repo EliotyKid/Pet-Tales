@@ -6,6 +6,10 @@ switch (navPage) {
     status.Draw()
     desc.Draw()
     break;
+  case 1:
+    custom.Draw()
+    skins.Draw()
+    break;
 }
 for( var i=0; i<PLAYER_PETS_DATABASE.Length(); i++){
   cards[i].Draw()
