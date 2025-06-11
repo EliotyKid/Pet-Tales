@@ -43,9 +43,10 @@ name = new CreateSurf(new Vector2(screen.w*.5 - _card*.5-_marg,screen.h*.5-_card
   DrawBox("dt",0,0,w,h,UI_SCALE)
   DrawTitleInSurf("Name")
   
-  if other.petSelected != noone{
+  var _pet = GetPetSelected()
+  if _pet != noone{
     var _namePos = new Vector2(w*.5,h*.5)
-    draw_text(_namePos.x,_namePos.y,other.petSelected.name)
+    draw_text(_namePos.x,_namePos.y,_pet.name)
   }
   DrawReset()
 })
@@ -59,11 +60,12 @@ desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card
   DrawBox("dt",0,0,w,h,UI_SCALE)
   DrawTitleInSurf("Description")
   
-   if other.petSelected != noone{
+  var _pet = GetPetSelected()
+  if _pet != noone{
     var _marg = 3*UI_SCALE
     var _descPos = new Vector2(_marg,40)
     DrawSetAling(0,0)
-    draw_text(_descPos.x,_descPos.y,other.petSelected.desc)
+    draw_text(_descPos.x,_descPos.y,_pet.desc)
   }
   DrawReset()
 },30)
@@ -72,20 +74,30 @@ desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card
 #region Custom
 
 custom = new CreateSurf(new Vector2(screen.w*.5-_card*.5-_marg,screen.h*.5-_card*.25),new Vector2(300,_card*.5),function(){
-  var _pet = noone
-  if global.cardSelected != noone{
-    _pet = PLAYER_PETS_DATABASE.FindById(global.cardSelected).pet
-  }
+  var _pet = GetPetSelected()
   DrawBox("dt",0,0,w,h,UI_SCALE) 
   DrawTitleInSurf("Customize")
   
   var _marg = 4*UI_SCALE
   DrawTogle("Follow",new Vector2(w-_marg*2,30),new Vector2(_marg,30),_pet != noone ? _pet.isActive : false,function(){
-    if global.cardSelected != noone{
-      var _pet = PLAYER_PETS_DATABASE.FindById(global.cardSelected).pet
-      _pet.isActive = !_pet.isActive
-    } 
+    var _pet = GetPetSelected()
+    if _pet != noone _pet.isActive = !_pet.isActive 
   })
+  
+  DrawIncrementDecrement("Color",new Vector2(w-_marg*2,30),new Vector2(_marg,80),function(){
+    var _pet = GetPetSelected()
+    if _pet != noone{
+      _pet.BeforePalette()
+      other.RedrawCardSelected()
+    }
+  },function(){
+    var _pet = GetPetSelected()
+    if _pet != noone{
+      _pet.NextPalette()
+      other.RedrawCardSelected()
+    }
+  })
+  
   
   DrawReset()
 },,true)
@@ -127,4 +139,35 @@ ResetCurvePosCardSelected = function(){
   }
 }
 
+RedrawCardSelected = function(){
+  for( var i=0; i<PLAYER_PETS_DATABASE.Length(); i++){
+    if cards[i].pet.id == global.cardSelected{
+      cards[i].SetDraw()
+    }
+  }
+}
 #endregion
+
+function DrawIncrementDecrement(_text,_size,_pos,_func1 = function(){},_func2 = function(){}){
+  DrawSetAling(1,1)
+  draw_text(_pos.x+_size.x*.5,_pos.y+_size.y*.5,_text)
+  
+  var _squadSize = new Vector2(_size.y*.8,_size.y*.8)
+  var _squadPos = new Vector2(_pos.x+(_size.y-_squadSize.y),_pos.y+_size.y*.5-_squadSize.y*.5)
+  draw_rectangle(_squadPos.x,_squadPos.y,_squadPos.x+_squadSize.x,_squadPos.y+_squadSize.y,false)
+  var _hover = point_in_rectangle(mousePos.x,mousePos.y,_squadPos.x,_squadPos.y,_squadPos.x+_squadSize.x,_squadPos.y+_squadSize.y)
+  if _hover{
+    if mouse_check_button_pressed(mb_left){
+      script_execute(_func1)
+    }
+  }
+  
+  var _squadPos = new Vector2(_pos.x+_size.x-_squadSize.x-(_size.y-_squadSize.y),_pos.y+_size.y*.5-_squadSize.y*.5)
+  draw_rectangle(_squadPos.x,_squadPos.y,_squadPos.x+_squadSize.x,_squadPos.y+_squadSize.y,false)
+  var _hover = point_in_rectangle(mousePos.x,mousePos.y,_squadPos.x,_squadPos.y,_squadPos.x+_squadSize.x,_squadPos.y+_squadSize.y)
+  if _hover{
+    if mouse_check_button_pressed(mb_left){
+      script_execute(_func2)
+    }
+  }
+}

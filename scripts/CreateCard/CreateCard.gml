@@ -36,7 +36,7 @@ function CreateCard(_pet,_delay = 0) constructor {
     if surface_exists(surf){
       surface_set_target(surf)
       draw_clear_alpha(c_black,0)
-      DrawBox(global.cardSelected == pet.id ? "green" : "w",marg,marg,w-marg*2,h-marg*2,UI_SCALE)
+      DrawBox(global.cardSelected == pet.id ? "w" : "w",marg,marg,w-marg*2,h-marg*2,UI_SCALE)
       
       var _centerPos = new Vector2(w*.5,h*.5)
       

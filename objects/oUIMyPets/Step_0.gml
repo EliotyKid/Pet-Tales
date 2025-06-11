@@ -27,14 +27,12 @@ if offsetInd != _oldOffsetInd {
 }
 
 if global.cardSelected != noone{
-  var _pet = PLAYER_PETS_DATABASE.FindById(global.cardSelected)
-  if _pet != undefined {
-    petSelected = _pet.pet
+  var _pet = GetPetSelected()
+  if _pet != noone {
     name.Redraw()
     desc.Redraw()
-    
   }
-  else petSelected = noone
+
 }
 
 for(var i=0; i<navLen; i++){

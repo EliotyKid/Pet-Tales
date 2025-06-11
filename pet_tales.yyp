@@ -90,6 +90,7 @@
     {"id":{"name":"DrawTogle","path":"scripts/DrawTogle/DrawTogle.yy",},},
     {"id":{"name":"GetMousePos","path":"scripts/GetMousePos/GetMousePos.yy",},},
     {"id":{"name":"GetNextId","path":"scripts/GetNextId/GetNextId.yy",},},
+    {"id":{"name":"GetPetSelected","path":"scripts/GetPetSelected/GetPetSelected.yy",},},
     {"id":{"name":"GetScreenSize","path":"scripts/GetScreenSize/GetScreenSize.yy",},},
     {"id":{"name":"GetSkins","path":"scripts/GetSkins/GetSkins.yy",},},
     {"id":{"name":"Globais","path":"scripts/Globais/Globais.yy",},},
