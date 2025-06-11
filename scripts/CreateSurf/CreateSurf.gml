@@ -32,7 +32,7 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0) constructor{
   Update = function(){
     if timerDelay < delay {
       timerDelay ++
-      exit
+      return
     }
     
     var _scl = scaleCurve.getValue()
@@ -53,6 +53,13 @@ function CreateSurf(_pos, _size, _setDraw = function(){}, _delay=0) constructor{
   
   Clear = function(){
     if surface_exists(surf) surface_free(surf)
+  }
+  
+  ResetAnimations = function(){
+    timerDelay = 0
+    scaleCurve.reset()
+    angleCurve.reset()
+    scale = new Vector2(0,0)
   }
   
 }

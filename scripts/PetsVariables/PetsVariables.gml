@@ -12,3 +12,4 @@ enum PET_TYPE {
 
 global.skins={ };
 global.cardSelected = noone
+global.cardHovered = noone

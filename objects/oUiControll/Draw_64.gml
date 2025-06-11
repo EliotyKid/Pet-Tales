@@ -1,7 +1,7 @@
 
 openBtn.Draw()
 
-  for( var i=0; i<menuLen; i++){
+for( var i=0; i<menuLen; i++){
   menuBtns[i].Draw()
 }
 

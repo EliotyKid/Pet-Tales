@@ -1,4 +1,4 @@
-function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){}) constructor{
+function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){},_args = []) constructor{
   x = _x
   y = _y
   w = _w
@@ -15,6 +15,7 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){}) constructor{
   hover = false
   
   scr = _scr
+  args = _args
   
   Step = function(){
     var isOpen = other.isMenuOpen
@@ -28,8 +29,9 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){}) constructor{
       if mouse_check_button_pressed(mb_left){
         audio_play_sound(sndClickBtn,1,false)
         var _scr = scr
+        var _args = args
         with (other) {
-        	script_execute(_scr)
+        	script_execute_ext(_scr,_args)
         }
       }
       //window_set_cursor(cr_handpoint)
@@ -45,7 +47,7 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){}) constructor{
     var isOpen = other.isMenuOpen
     if point_distance(x,y,start.x,start.y)<2 && !isOpen && needDisappear exit
     
-    DrawBox(hover ? "lt" : "dt", x-w*.5,y-h*.5,w,h,other.scl)
+    DrawBox(hover ? "lt" : "dt", x-w*.5,y-h*.5,w,h,UI_SCALE)
     DrawSetAling(1,1)
     draw_text(x,y,text)
     DrawReset()

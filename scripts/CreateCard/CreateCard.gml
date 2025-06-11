@@ -30,18 +30,31 @@ function CreateCard(_pet,_delay = 0) constructor {
   posCurve = new CurveRunner(acCard,"pos",2)
   angleCurve = new CurveRunner(acCard,"angle",.5)
   
-  if surface_exists(surf){
-    surface_set_target(surf)
-    draw_clear_alpha(c_black,0)
-    DrawBox("w",marg,marg,w-marg*2,h-marg*2,UI_SCALE)
-    
-    var _centerPos = new Vector2(w*.5,h*.5)
-    
-    var _s = 7
-    draw_sprite_ext(pet.sprite.idle,0,_centerPos.x,_centerPos.y,_s,_s,0,c_white,1)
-    
-    surface_reset_target()
+  colorMode = ColorModFromSprite(pet.paletteSprite,0,true)
+  
+  SetDraw = function(){
+    if surface_exists(surf){
+      surface_set_target(surf)
+      draw_clear_alpha(c_black,0)
+      DrawBox(global.cardSelected == pet.id ? "green" : "w",marg,marg,w-marg*2,h-marg*2,UI_SCALE)
+      
+      var _centerPos = new Vector2(w*.5,h*.5)
+      
+      var _s = 7
+      colorMode.SetShader(pet.paletteIndex)
+      draw_sprite_ext(pet.sprite.idle,0,_centerPos.x,_centerPos.y,_s,_s,0,c_white,1)
+      shader_reset()
+      
+      surface_reset_target()
+    }
   }
+  SetDraw()
+  
+  UpdateTargetsPos = function(){
+    dest = global.cardSelected == pet.id ? selectedPos : generalPos
+    start = global.cardSelected == pet.id ? generalPos : selectedPos
+  }
+  UpdateTargetsPos()
   
   Update = function(){
     if timerDelay < delay{
@@ -53,6 +66,10 @@ function CreateCard(_pet,_delay = 0) constructor {
     
     var _hover = point_in_rectangle(ms.x,ms.y,x-w*.5+marg,y-h*.5+marg,x+w*.5-marg,y+h*.5-marg)
     if _hover && global.cardSelected != pet.id{
+      if global.cardHovered == noone{
+        global.cardHovered = pet.id
+      }
+      
       if !hover{
         angleCurve.reset()
         audio_play_sound(sndHoverBtn,1,false,6)
@@ -61,7 +78,7 @@ function CreateCard(_pet,_delay = 0) constructor {
       scale.x = lerp(scale.x,1.2,.1)
       scale.y = lerp(scale.y,1.2,.1)
       
-      if mouse_check_button_pressed(mb_left){
+      if mouse_check_button_pressed(mb_left) && global.cardHovered == pet.id{
         //TODO logica de armazenar os pet atual pra pegar ae modificar as infos
         scale.x += .2
         scale.y -= .1
@@ -72,27 +89,22 @@ function CreateCard(_pet,_delay = 0) constructor {
           oUIMyPets.ResetCurvePosCardSelected()
         }
         global.cardSelected = pet.id
-        
-        start = new Vector2(x,y)
-        
         posCurve.reset()
         audio_play_sound(sndClickBtn,1,false)
       }
     }else{
       scale.x = lerp(scale.x,1,.05)
       scale.y = lerp(scale.y,1,.05)
+      
+      if global.cardHovered == pet.id global.cardHovered = noone
     }
     
     if global.cardSelected == pet.id{
       scale.x = lerp(scale.x,UI_SCALE*.5,.2)
       scale.y = lerp(scale.y,UI_SCALE*.5,.2)
-      start = generalPos
-      dest = selectedPos
-    }else{
-      start = selectedPos
-      dest = generalPos
+      
     }
-    
+    UpdateTargetsPos()
     var _pos = posCurve.getPos()
     if _pos < 1{
       var _val = posCurve.getValue()

@@ -1,10 +1,36 @@
+var sc
 destroy = false
 screen = GetScreenSize()
-
+isMenuOpen = true
 petSelected = noone
 
 var _card = 200 * UI_SCALE
 var _marg = 4*UI_SCALE
+
+navPage = 0
+navItems = [
+  "About",
+  "Custom"
+]
+navLen = array_length(navItems)
+nav = []
+for(var i=0; i<navLen; i++){
+  var _boxSize = new Vector2(150,50)
+  var _diff = (_boxSize.x+_marg)*(navLen-1)*.5
+  var _boxPos = new Vector2(screen.w*.5+(_marg+_boxSize.x)*i-_diff,100)
+  var _func = function(_ind){
+    navPage = _ind
+    switch (navPage) {
+    	case 0:
+        name.ResetAnimations()
+        status.ResetAnimations()
+        desc.ResetAnimations()
+        
+        break;
+    }
+  }
+  nav[i] = new CreateButtom( _boxPos.x,_boxPos.y,_boxSize.x,_boxSize.y,navItems[i],_func,[i])
+}
 
 
 
@@ -44,8 +70,7 @@ desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card
   DrawReset()
 },30)
 
-playerPets = PLAYER_PETS_DATABASE.List()
-
+#region Crds
 cards = []
 for( var i=0; i<PLAYER_PETS_DATABASE.Length(); i++){
   var _timeDelay = i*10
@@ -58,6 +83,11 @@ UpdateCardsPos(cards)
 
 AtualizaCardPos = function(){
   UpdateCardsPos(cards)
+  var _len = array_length(cards)
+  for( var i=0; i<_len; i++){
+    cards[i].UpdateTargetsPos()
+  }
+
 }
 
 ResetCurvePosCardSelected = function(){
@@ -68,3 +98,5 @@ ResetCurvePosCardSelected = function(){
     }
   }
 }
+
+#endregion
