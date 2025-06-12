@@ -1,8 +1,9 @@
 /// @arg {Real} _type
 /// @arg {String} _sprite
 /// @arg {String} _desc
+/// @arg {Real} _cost
 /// @arg {Asset.GMScript} _behavior
-function PetBase(_type,_sprite,_desc,_behavior = PBFollowMouse) constructor {
+function PetBase(_type,_sprite,_desc,_cost = 10,_behavior = PBFollowMouse) constructor {
   name = undefined
   id = GetNextId()
   sprite = {}
@@ -12,6 +13,7 @@ function PetBase(_type,_sprite,_desc,_behavior = PBFollowMouse) constructor {
   }
   desc = _desc
   type = _type
+  cost = _cost
   
   isActive = false
   behavior = _behavior

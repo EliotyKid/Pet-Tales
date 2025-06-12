@@ -95,6 +95,7 @@
     {"id":{"name":"GetMousePos","path":"scripts/GetMousePos/GetMousePos.yy",},},
     {"id":{"name":"GetNextId","path":"scripts/GetNextId/GetNextId.yy",},},
     {"id":{"name":"GetPetSelected","path":"scripts/GetPetSelected/GetPetSelected.yy",},},
+    {"id":{"name":"GetPetSelectedToArray","path":"scripts/GetPetSelectedToArray/GetPetSelectedToArray.yy",},},
     {"id":{"name":"GetScreenSize","path":"scripts/GetScreenSize/GetScreenSize.yy",},},
     {"id":{"name":"GetSkins","path":"scripts/GetSkins/GetSkins.yy",},},
     {"id":{"name":"Globais","path":"scripts/Globais/Globais.yy",},},

@@ -26,14 +26,13 @@ if offsetInd != _oldOffsetInd {
   ResetCurvePosCardSelected()
 }
 
-if global.cardSelected != noone{
-  var _pet = GetPetSelected()
-  if _pet != noone {
-    name.Redraw()
-    desc.Redraw()
-  }
-
-}
+//if global.cardSelected != noone{
+  //var _pet = GetPetSelected()
+  //if _pet != noone {
+    //name.Redraw()
+    //desc.Redraw()
+  //}
+//}
 
 for(var i=0; i<navLen; i++){
   nav[i].Step()

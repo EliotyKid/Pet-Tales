@@ -1,5 +1,4 @@
 if destroy instance_destroy()
-  
 
 switch (navPage) {
 	case 0:
@@ -8,6 +7,7 @@ switch (navPage) {
     }
     name.Update()
     desc.Update()
+    price.Update()
     break;
   case 1:
     for( var i=0; i<array_length(cards); i++){

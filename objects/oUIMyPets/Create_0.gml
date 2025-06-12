@@ -213,3 +213,13 @@ RedrawCardSelected = function(){
 }
 #endregion
 
+
+RedrawSurfaces = function(){
+  switch (navPage) {
+  	case 0:
+      name.Redraw()
+      desc.Redraw()
+      status.Redraw()
+      break;
+  }
+}

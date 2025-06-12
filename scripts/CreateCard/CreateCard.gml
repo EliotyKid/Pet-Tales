@@ -101,8 +101,17 @@ function CreateCard(_pet,_delay = 0) constructor {
         if instance_exists(oUIStore){
           oUIStore.AtualizaCardPos()
           oUIStore.ResetCurvePosCardSelected()
+          oUIStore.RedrawSurfaces()
         }
         global.cardSelected = pet.id
+        
+        if instance_exists(oUIStore){
+          oUIStore.RedrawSurfaces()
+        }
+        
+        if instance_exists(oUIMyPets){
+          oUIMyPets.RedrawSurfaces()
+        }
         
         posCurve.reset()
         audio_play_sound(sndClickBtn,1,false)

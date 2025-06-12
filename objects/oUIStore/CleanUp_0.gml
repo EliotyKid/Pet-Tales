@@ -4,3 +4,4 @@ for( var i=0; i<array_length(cardsToBuy); i++){
 
 name.Clear()
 desc.Clear()
+price.Clear()

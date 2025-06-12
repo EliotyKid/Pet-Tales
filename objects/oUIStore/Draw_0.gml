@@ -7,6 +7,7 @@ switch (navPage) {
     }
     name.Draw()
     desc.Draw()
+    price.Draw()
     break;
   case 1:
     for( var i=0; i<array_length(cards); i++){

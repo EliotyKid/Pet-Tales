@@ -30,6 +30,7 @@ for(var i=0; i<navLen; i++){
         UpdateCardsPos(cardsToBuy)
         name.ResetAnimations()
         desc.ResetAnimations()
+        price.ResetAnimations()
       
         global.cardSelected = noone
         break;
@@ -51,19 +52,18 @@ name = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card
   DrawBox("dt",0,0,w,h,UI_SCALE)  
   DrawTitleInSurf("Name",w)
   
-  var _pet = GetPetSelected()
+  var _pet = GetPetSelectedToArray(other.petsToBuy)
   if _pet != noone{
     var _namePos = new Vector2(w*.5,h*.5)
     draw_text(_namePos.x,_namePos.y,_pet.name)
   }
   DrawReset()
-},,2)
+},,1.5)
 
 desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card*.5+name.h+_marg+150),new Vector2(300,300),function(){
   DrawBox("dt",0,0,w,h,UI_SCALE)
   DrawTitleInSurf("Description",w)
-  
-  var _pet = GetPetSelected()
+  var _pet = GetPetSelectedToArray(other.petsToBuy)
   if _pet != noone{
     var _marg = 3*UI_SCALE
     var _descPos = new Vector2(_marg,40)
@@ -71,7 +71,19 @@ desc = new CreateSurf(new Vector2(screen.w*.5 + _card*.5+_marg,screen.h*.5-_card
     draw_text(_descPos.x,_descPos.y,_pet.desc)
   }
   DrawReset()
-},15,2)
+},15,1.5)
+
+price = new CreateSurf(new Vector2(screen.w*.5-_card*.5-_marg,screen.h*.5-_card*.5+60),new Vector2(300,120),function(){
+  DrawBox("dt",0,0,w,h,UI_SCALE)
+  DrawTitleInSurf("Price",w)
+  
+  var _pet = GetPetSelectedToArray(other.petsToBuy)
+  if _pet != noone{
+    DrawSetAling(1,1)
+    var _textPos = new Vector2(w*.5,h*.5)
+    draw_text(_textPos.x,_textPos.y,_pet.cost)
+  }
+},30,1.5)
 #endregion
 
 
@@ -162,6 +174,7 @@ RedrawSurfaces = function(){
   	case 0:
       name.Redraw()
       desc.Redraw()
+      price.Redraw()
       break;
     case 1:
       
