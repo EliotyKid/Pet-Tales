@@ -10,8 +10,8 @@
   "name":"oUiControll",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"UIControlls",
+    "path":"folders/Objects/UIControlls.yy",
   },
   "parentObjectId":null,
   "persistent":false,

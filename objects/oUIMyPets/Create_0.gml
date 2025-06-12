@@ -133,7 +133,10 @@ skins = new CreateSurf(new Vector2(screen.w*.5+_card*.5+_marg+(_sliderW)*.5,scre
         }
       }
       
-      DrawBox(_hover ? "w" : "lt",_boxPos.x,_boxPos.y,_boxSize.x,_boxSize.y,UI_SCALE)
+      var isSelected = _pet.skinSel == _skins[i].id
+      var isSelectedSpr = isSelected ? "green" : "lt"
+      DrawBox(_hover ? "w" : isSelectedSpr ,_boxPos.x,_boxPos.y,_boxSize.x,_boxSize.y,UI_SCALE)
+      
       var _sprPos = new Vector2(_boxPos.x+_boxSize.x*.5,_boxPos.y+_boxSize.y*.5)
       var _spr = asset_get_index(_skins[i].icon)
       var _scl = 4

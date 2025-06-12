@@ -15,6 +15,7 @@
     {"$GMFolder":"","%Name":"Fonts","folderPath":"folders/Fonts.yy","name":"Fonts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Notes","folderPath":"folders/Notes.yy","name":"Notes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"UIControlls","folderPath":"folders/Objects/UIControlls.yy","name":"UIControlls","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Particle Systems","folderPath":"folders/Particle Systems.yy","name":"Particle Systems","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Paths","folderPath":"folders/Paths.yy","name":"Paths","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -63,6 +64,7 @@
   "resources":[
     {"id":{"name":"acCard","path":"animcurves/acCard/acCard.yy",},},
     {"id":{"name":"acUi","path":"animcurves/acUi/acUi.yy",},},
+    {"id":{"name":"fTitle","path":"fonts/fTitle/fTitle.yy",},},
     {"id":{"name":"oControllWindow","path":"objects/oControllWindow/oControllWindow.yy",},},
     {"id":{"name":"oGameControll","path":"objects/oGameControll/oGameControll.yy",},},
     {"id":{"name":"oUiControll","path":"objects/oUiControll/oUiControll.yy",},},
@@ -177,6 +179,7 @@
     {"id":{"name":"sPigIdle","path":"sprites/sPigIdle/sPigIdle.yy",},},
     {"id":{"name":"sPigPalette","path":"sprites/sPigPalette/sPigPalette.yy",},},
     {"id":{"name":"sPigWalk","path":"sprites/sPigWalk/sPigWalk.yy",},},
+    {"id":{"name":"Sprite71","path":"sprites/Sprite71/Sprite71.yy",},},
     {"id":{"name":"sWolfIdle","path":"sprites/sWolfIdle/sWolfIdle.yy",},},
     {"id":{"name":"sWolfPalette","path":"sprites/sWolfPalette/sWolfPalette.yy",},},
     {"id":{"name":"sWolfWalk","path":"sprites/sWolfWalk/sWolfWalk.yy",},},

@@ -51,6 +51,7 @@ function CreateButtom(_x,_y,_w,_h,_text = "",_scr = function(){},_args = []) con
     
     DrawBox(hover || selected ? "lt" : "dt", x-w*.5,y-h*.5,w,h,UI_SCALE)
     DrawSetAling(1,1)
+    draw_set_font(fTitle)
     draw_text(x,y,text)
     DrawReset()
   }
